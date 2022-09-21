@@ -1,0 +1,278 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	font-size: 62.5%;
+
+	--ff-primary: 'Staatliches', cursive;
+	--ff-secondary: 'Palanquin', sans-serif;
+	--ff-terdiary: 'Open Sans', sans-serif;
+	--ff-quaternary: 'Roboto', sans-serif;
+
+	--fc-section: hsl(0, 0%, 100%);
+	--fc-main: hsl(274, 84%, 12%);
+	--fc-card-tittle: hsl(232, 17%, 35%);
+
+	--bg-section-primary: hsl(218, 17%, 62%);
+	--bg-section-secondary: hsl(275, 18%, 79%);
+	--bg-body: hsl(233, 100%, 97%);
+	--bg-card: hsl(312, 91%, 96%);
+}
+
+html {
+	height: 100%;
+    width: 100%;
+}
+
+body {
+	font-family: var(--ff-primary);
+	background-color: var(--bg-body);
+	font-size: 1.6rem;
+	width: 100vw;
+}
+
+.page {
+	margin: 0 auto;
+	min-width: 36rem;
+}
+
+section {
+	background-color: var(--bg-section-primary);
+	height: 27.9rem;
+}
+
+section svg {
+	padding: 3.2rem 0 3.2rem;
+	margin: 0 auto;
+	display: block;
+	width: 13.7rem;
+}
+
+section h1 {
+	font-weight: 400;
+	font-size: 4rem;
+	line-height: 3,4rem;
+	text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+	text-align: center;
+	letter-spacing: 0.05rem;
+
+	color: var(--fc-section);
+	background-color: var(--bg-section-secondary);
+}
+
+section p {
+	padding: 4.3rem 0 2.8rem;
+	font-family: var(--ff-secondary);
+	font-size: 1.6rem;
+	line-height: 2rem;
+	max-width: 30rem;
+
+	margin: auto;
+	text-align: center;
+
+	color: var(--fc-main);
+}
+
+main {
+	padding: 15rem 0 6rem;
+	display: grid;
+	gap: 3.2rem;
+	margin: 0 auto;
+	width: 32rem;
+	
+}
+
+main div:nth-child(5) {
+	display: none;
+}
+
+main div:nth-child(6) {
+	display: none;
+}
+
+.card {
+	position: relative;
+}
+
+.card h2 {
+	position: absolute;
+	top: 1.6rem;
+	right: 1.6rem;
+	border-radius: 2rem;
+	min-width: 112px;
+	text-align: center;
+	
+	font-weight: 400;
+	font-size: 2rem;
+	line-height: 3.4rem;
+	letter-spacing: 0.05rem;
+
+	color: var(--fc-card-tittle);
+	background-color: var(--bg-card);
+
+	animation: right-fade-in 800ms 350ms backwards;
+	z-index: 1;
+}
+
+.card img {
+	border-radius: 2rem;
+	display: block;
+
+	object-fit: cover;
+	width: 100%;
+	max-height: 100%;
+
+	transition: all 200ms;
+
+	animation-name: downtop;
+	animation-duration: 700ms;
+	animation-delay: 150ms;
+	animation-fill-mode: backwards;
+}
+
+.card img:hover {
+	transform: scale(1.1);
+	opacity: 1;
+}
+
+footer {
+	display: none;
+}
+
+
+/*ANIMATIONS*/
+@keyframes downtop {
+	0% {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
+@keyframes right-fade-in {
+	0% {
+		opacity: 0;
+		transform: translateX(30px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+
+
+/*TABLET AND DESKTOP RESPONSIVITY*/
+@media (min-width: 730px) {
+
+	section p {
+		max-width: 72rem;
+	}
+	
+	main {
+	
+		grid-template-areas: 
+		"A B "
+		"D B "
+		"D C ";
+
+		width: 72rem;
+		grid-template-columns: 32rem 32rem;
+		justify-content: center;
+		padding-bottom: 5rem;
+	}
+
+	main div:nth-child(1) {
+		grid-area: A;
+	}
+
+	main div:nth-child(2) {
+		grid-area: B;
+	}
+
+	main div:nth-child(3) {
+		grid-area: C;
+	}
+
+	main div:nth-child(4) {
+		grid-area: D;
+	}
+
+	main div:nth-child(5) {
+		grid-area: E;
+	}
+
+	main div:nth-child(6) {
+		grid-area: F;
+	}
+
+	footer {
+		display: block;
+		padding-bottom: 4rem;
+		font-family: var(--ff-terdiary);
+		text-align: center;
+
+		font-size: 1.4rem;
+		line-height: 2.8rem;
+	}
+
+	footer a {
+		text-decoration: none;
+		font-weight: 700;
+		color: var(--fc-card-tittle);
+	}
+}
+
+@media (min-width: 1030px) {
+
+	.page {
+		display: flex;
+		max-width: 128rem;
+	}
+
+	section {
+		min-width: 37.7rem;
+		min-height: 72rem;
+	}
+
+	section p {
+		font-family: var(--ff-quaternary);
+		padding: 3.2rem 5rem;
+		font-size: 2.4rem;
+		line-height: 2rem;
+		
+		color: var(--fc-section);
+	}
+
+	.desktop {
+		max-width: 90rem;
+		display: flex;
+		flex-direction: column;
+	}
+
+	main {
+		grid-template-areas: 
+			"A B E"
+			"D B F"
+			"D C F";
+		grid-template-columns: 22rem 22rem 22rem;
+		padding: 6.4rem 9rem 5rem;
+		min-width: fit-content;
+	}
+
+	main div:nth-child(5) {
+		display: block;
+	}
+
+	main div:nth-child(6) {
+		display: block;
+	}
+}
